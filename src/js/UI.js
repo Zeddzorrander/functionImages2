@@ -14,17 +14,13 @@ export const elements = {
     nextBtn: document.getElementById('nextDom_button'),
 }
 
-export function updateFeedbackSection(domain, range) {
+export function updateFeedbackSection(a, b) {
     elements.secInput1.style.display = 'none';
     elements.feedback.style.display = 'block';
     elements.p_feedbackBtn1.style.display = 'block';
-    let feedback = `<p>The function \\(f\\) maps the interval \\(${domain.strg}\\) to the interval \\(${range.strg}\\).</p> 
-    <p>\\(f(${domain.leftEndpt}) = ${range.f_a}\\) and \\(f(${domain.rightEndpt}) = ${range.f_b}\\).</p>`;
+    let feedback = `<p>Restricted domain: \\((${a}, ${b})\\)</p>`;
     elements.p_feedback.innerHTML = feedback;
     MathJax.typeset();
-    elements.nextBtn.style.visibility = 'hidden';
-    elements.prevBtn.style.visibility = 'visible';
-    return feedback
 }
 
 export function getInputValue(id) {

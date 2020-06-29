@@ -12,11 +12,18 @@ function update() {
     const range = new Interval(string, 'y');
     ggb.updateRange(range);
     ggb.domainVisible();
+    ggb.pointCapture(1, 0);
+    ggb.registerUpdateListener('A', updateDOM);
+    ggb.registerUpdateListener('B', updateDOM);
+}
 
+function updateDOM() {
+    let a = ggb.getRoundedValue('a');
+    let b = ggb.getRoundedValue('b');
+    updateFeedbackSection(a, b)
 }
 
 function newRange() {
-    ggbAppState.counter = ggbAppState.currentIndex;
     ggb.newConstruction();
     ggb.loadCodebase(parameters.ggbBase64);
     resetDOM();

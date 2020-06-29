@@ -23,6 +23,14 @@ export function domainVisible() {
     ggbApplet.setVisible('B', true);
 }
 
+export function pointCapture(view, mode) {
+    ggbApplet.setPointCapture(view, mode);
+}
+
+export function registerUpdateListener(name, callback) {
+    ggbApplet.registerObjectUpdateListener(name, callback);
+}
+
 export function updateRange(range) {
     ggbApplet.setValue('c', range.leftEndpt);
     ggbApplet.setValue('d', range.rightEndpt);
@@ -115,6 +123,6 @@ export function calcRange(domain) {
     return { leftIneq, rightIneq, leftEndpt, rightEndpt, strg, f_a, f_b };
 }
 
-function getRoundedValue(obj) {
-    return Math.round(100000 * parseFloat(ggbApplet.getValue(obj))) / 100000
+export function getRoundedValue(obj) {
+    return Math.round(1000 * parseFloat(ggbApplet.getValue(obj))) / 1000
 }
