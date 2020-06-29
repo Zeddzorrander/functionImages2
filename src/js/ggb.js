@@ -17,10 +17,15 @@ export function updateDomain(domain) {
     ggbApplet.evalCommand(`domain: a ${domain.leftIneq} x ${domain.rightIneq} b`);
 }
 
+export function domainVisible() {
+    ggbApplet.setVisible('domain', true);
+    ggbApplet.setVisible('A', true);
+    ggbApplet.setVisible('B', true);
+}
+
 export function updateRange(range) {
-    ggbApplet.setValue('min', range.leftEndpt);
-    ggbApplet.setValue('max', range.rightEndpt);
-    ggbApplet.evalCommand(`range: min ${range.leftIneq} y ${range.rightIneq} max`);
+    ggbApplet.setValue('c', range.leftEndpt);
+    ggbApplet.setValue('d', range.rightEndpt);
     ggbApplet.setVisible('range', true);
 }
 
